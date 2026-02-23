@@ -1,0 +1,2 @@
+23/02: initial basic functions
+24/02: sliders, refactor if possible
