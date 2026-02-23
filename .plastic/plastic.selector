@@ -1,0 +1,4 @@
+repository "shower thought games/shower thought games@18968144742468@cloud"
+  path "/"
+    br "/main"
+    co "/main"
