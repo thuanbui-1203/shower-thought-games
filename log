@@ -1,0 +1,23 @@
+[33mcommit d06d96f2b430d65c4c8a666f4cec1fe8d3a71899[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Thuan Bui <thuanbui.dev@gmail.com>
+Date:   Mon Mar 16 14:56:33 2026 +0700
+
+    lua lander part 1
+
+[33mcommit be236a022cf56de19a5289619c9cd05f2fddbb92[m
+Author: Thuan Bui <thuanbui.dev@gmail.com>
+Date:   Wed Mar 4 01:50:54 2026 +0700
+
+    finishing core loop of the game
+
+[33mcommit 1694918af7521a929b16c00a8168f7bdba93af73[m
+Author: Thuan Bui <thuanbui.dev@gmail.com>
+Date:   Tue Feb 24 01:59:39 2026 +0700
+
+    add notes
+
+[33mcommit 2719f412d93ff688d92846949781b13a73e30cf7[m
+Author: Thuan Bui <thuanbui.dev@gmail.com>
+Date:   Tue Feb 24 01:38:43 2026 +0700
+
+    initial commit with basic functions, will add more tomorrow
