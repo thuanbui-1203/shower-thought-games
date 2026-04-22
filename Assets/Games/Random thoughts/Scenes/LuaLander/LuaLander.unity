@@ -185,9 +185,9 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -17.145721, y: -9.78002}
-      - {x: -13.237631, y: -7.2494764}
-      - {x: -13.283995, y: 2.1287513}
-      - {x: -13.432724, y: 14.463668}
+      - {x: -15.91667, y: -7.40112}
+      - {x: -16.771797, y: 1.9265598}
+      - {x: -14.999706, y: 13.654903}
       - {x: 24.557833, y: 15.856951}
       - {x: 24.127897, y: 8.35693}
       - {x: 15.863543, y: 11.127638}
@@ -202,7 +202,7 @@ PolygonCollider2D:
       - {x: 9.212654, y: -0.50453377}
       - {x: 11.894254, y: 5.6371922}
       - {x: 14.874664, y: 5.5690994}
-      - {x: 24.690374, y: -8.46181}
+      - {x: 24.53873, y: -9.523316}
       - {x: -17.145721, y: -9.78002}
   m_UseDelaunayMesh: 1
 --- !u!114 &673317841
@@ -228,7 +228,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -13.237631, y: -7.2494764, z: 0}
+    - position: {x: -15.91667, y: -7.40112, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -13.283995, y: 2.1287513, z: 0}
+    - position: {x: -16.771797, y: 1.9265598, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -13.432724, y: 14.463668, z: 0}
+    - position: {x: -14.999706, y: 13.654903, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 24.690374, y: -8.46181, z: 0}
+    - position: {x: 24.53873, y: -9.523316, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -395,9 +395,9 @@ MonoBehaviour:
   m_Modifiers: []
   m_ColliderSegment:
   - {x: -17.145721, y: -9.78002}
-  - {x: -13.237631, y: -7.2494764}
-  - {x: -13.283995, y: 2.1287513}
-  - {x: -13.432724, y: 14.463668}
+  - {x: -15.91667, y: -7.40112}
+  - {x: -16.771797, y: 1.9265598}
+  - {x: -14.999706, y: 13.654903}
   - {x: 24.557833, y: 15.856951}
   - {x: 24.127897, y: 8.35693}
   - {x: 15.863543, y: 11.127638}
@@ -412,7 +412,7 @@ MonoBehaviour:
   - {x: 9.212654, y: -0.50453377}
   - {x: 11.894254, y: 5.6371922}
   - {x: 14.874664, y: 5.5690994}
-  - {x: 24.690374, y: -8.46181}
+  - {x: 24.53873, y: -9.523316}
   - {x: -17.145721, y: -9.78002}
   m_ShadowSegment: []
 --- !u!1971053207 &673317842
@@ -477,8 +477,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 3.7723274, y: 3.0384655, z: 0}
-    m_Extent: {x: 20.918049, y: 12.818485, z: 0}
+    m_Center: {x: 3.7060547, y: 3.0384655, z: 0}
+    m_Extent: {x: 20.851776, y: 12.818485, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &673317843
 Transform:
@@ -991,7 +991,7 @@ Rigidbody2D:
   m_UseAutoMass: 1
   m_Mass: 2.0278304
   m_LinearDamping: 2
-  m_AngularDamping: 5
+  m_AngularDamping: 10
   m_GravityScale: 1.1
   m_Material: {fileID: 0}
   m_IncludeLayers:

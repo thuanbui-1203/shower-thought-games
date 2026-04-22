@@ -37,6 +37,19 @@ public class Lander : MonoBehaviour
             _rigidbody2D.AddTorque(turnSpeed * -1 * Time.deltaTime);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        // collision2D.relativeVelocity.magnitude
+        float softLandingVelocityMagnitude = 4f;
+        if (collision2D.relativeVelocity.magnitude > softLandingVelocityMagnitude)
+        {
+            Debug.Log("Landed too hard");
+            return;
+        }
+        Debug.Log("Successful Landing");
+        return;
+    }
     private void Update()
     {
 
