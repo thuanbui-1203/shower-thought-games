@@ -60,7 +60,9 @@ Assets/Games/Random thoughts/Scripts/DataDropper/
  ScoreCount.cs
 Assets/Games/Random thoughts/Scripts/
  GameManager.cs
- Lua Lander/Lander.cs
+ Lua Lander/
+  Lander.cs
+  LandingPad.cs
  SpeedAdjusting/
   BoxMove.cs
   TargetChecker.cs

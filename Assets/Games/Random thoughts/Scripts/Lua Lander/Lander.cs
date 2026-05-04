@@ -22,33 +22,51 @@ public class Lander : MonoBehaviour
     {
         if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed)
         {
-            Debug.Log("up key pressed");
             _rigidbody2D.AddForce(force * Time.deltaTime * transform.up, ForceMode2D.Impulse);
         }
 
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
         {
-            Debug.Log("left key pressed");
             _rigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
         }
         if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
         {
-            Debug.Log("right key pressed");
             _rigidbody2D.AddTorque(turnSpeed * -1 * Time.deltaTime);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
+        if (collision2D.gameObject.TryGetComponent<LandingPad>(out LandingPad landingPad))
+        {
+            Debug.Log("Landed on pad");
+        }
         // collision2D.relativeVelocity.magnitude
         float softLandingVelocityMagnitude = 4f;
-        if (collision2D.relativeVelocity.magnitude > softLandingVelocityMagnitude)
+        float relativeVelocityMagnitude = collision2D.relativeVelocity.magnitude;
+        if (relativeVelocityMagnitude > softLandingVelocityMagnitude)
         {
             Debug.Log("Landed too hard");
             return;
         }
-        Debug.Log("Successful Landing");
-        return;
+
+        float dotVector = Vector2.Dot(Vector2.up, transform.up);
+        float minDotVector = 0.90f;
+        if (dotVector < minDotVector)
+        {
+            Debug.Log("Landed on a too steep angle");
+            return;
+        }
+
+        float maxScoreAmountLandingAngle = 100;
+        float scoreDotVectorMultiplier = 10f;
+        float landingAngleScore = maxScoreAmountLandingAngle - Mathf.Abs(dotVector - 1) * scoreDotVectorMultiplier;
+
+        float maxScoreAmountLandingSpeed = 100;
+        float landingSpeedScore = (softLandingVelocityMagnitude - relativeVelocityMagnitude) * maxScoreAmountLandingSpeed;
+
+        Debug.Log($"Landing angle score: {landingAngleScore}");
+        Debug.Log($"Landing speed score: {landingSpeedScore}");
     }
     private void Update()
     {

@@ -14,25 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: lunarLanderFree
-  lastShownTimestamp: 1776852657
+  lastShownTimestamp: 1777876016
   lastUpdateResponse:
     version: 1.00
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1776852657
+  checkedLastUpdateTimestamp: 1777876016
   lastQOTDResponse:
-    questionId: 294
-    questionText: 'Does this code have an error?
-
-      <p>int myNewX = 10;</p>
-
-      <p>transform.position.x
-      = myNewX;</p>'
-    answerA: Yes
-    answerB: No
-    answerC: Only if GameObject does not have a Transform component
+    questionId: 298
+    questionText: What is the main difference between the out and ref keywords? (behaviour
+      inside the function)
+    answerA: out doesn't need to be set; ref MUST be set
+    answerB: out MUST be set; ref doesn't need to be set
+    answerC: No difference
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1776852657
+  lastQotdTimestamp: 1777876016
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/codeMonkeyToolkit50Off.png
     topText: My Toolkit is 50% OFF! 40+ Tools and Elements to help you make games
@@ -40,19 +36,19 @@ MonoBehaviour:
     topLink: toolkit
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1776852657
+  lastDynamicHeaderTimestamp: 1777876016
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1776852657
+  websiteLatestMessageTimestamp: 1777876016
   websiteLatestVideos:
     videos:
-    - youTubeId: uPVKcI0IDVc
-      title: Is Game Dev Advice CONTRADICTORY?
-    - youTubeId: B82lo8t4IHs
-      title: TOP 10 FREE NEW Assets APRIL 2026!
-    - youTubeId: xLH5H6aWZHo
-      title: Every game is 90% THE SAME!
-    - youTubeId: IkYt5CqoAoY
-      title: TOOLS to help you make games BETTER and FASTER!
-  websiteLatestVideosTimestamp: 1776852657
+    - youTubeId: 2gP-2rQ3o_Q
+      title: This Tool FIXES your Unity Project!
+    - youTubeId: 1bLBKMQ9YwE
+      title: BEST NEW Visual Assets to INSPIRE YOU! (APRIL 2026)
+    - youTubeId: XB7b4EXfjgM
+      title: What do YOU consider SUCCESS?
+    - youTubeId: LDgPyFmlsSI
+      title: 8 QUICK Game Dev Tips for SUCCESS!
+  websiteLatestVideosTimestamp: 1777876016
