@@ -62,7 +62,9 @@ Assets/Games/Random thoughts/Scripts/
  GameManager.cs
  Lua Lander/
   Lander.cs
+  LanderVisuals.cs
   LandingPad.cs
+  LandingPadVisuals.cs
  SpeedAdjusting/
   BoxMove.cs
   TargetChecker.cs
