@@ -6,10 +6,18 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Lander : MonoBehaviour
 {
+    public static Lander Instance { get; private set; }
     public event EventHandler OnUpForce;
     public event EventHandler OnLeftForce;
     public event EventHandler OnRightForce;
     public event EventHandler OnBeforeForce;
+    public event EventHandler OnCoinPickup;
+    public event EventHandler<OnLandedEventArgs> OnLanded;
+    public class OnLandedEventArgs : EventArgs
+    {
+        public int score;
+    }
+
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float turnSpeed = 100f;
     [SerializeField] private float force = 70f;
@@ -17,6 +25,7 @@ public class Lander : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        Instance = this;
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
     private void Start()
@@ -89,6 +98,10 @@ public class Lander : MonoBehaviour
             int score = Mathf.RoundToInt((landingAngleScore + landingSpeedScore) * landingPad.GetScoreMultiplier);
 
             Debug.Log($"Total score: {score}");
+            OnLanded?.Invoke(this, new OnLandedEventArgs
+            {
+                score = score,
+            });
         }
     }
 
@@ -99,6 +112,12 @@ public class Lander : MonoBehaviour
             float addFuelAmount = 10f;
             fuelAmount += addFuelAmount;
             fuelPickup.DestroySelf();
+        }
+
+        if (collider2D.gameObject.TryGetComponent<CoinPickup>(out CoinPickup coinPickup))
+        {
+            OnCoinPickup?.Invoke(this, EventArgs.Empty);
+            coinPickup.DestroySelf();
         }
         return;
     }

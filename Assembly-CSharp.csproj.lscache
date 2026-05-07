@@ -61,6 +61,7 @@ Assets/Games/Random thoughts/Scripts/DataDropper/
 Assets/Games/Random thoughts/Scripts/
  GameManager.cs
  Lua Lander/
+  CoinPickup.cs
   FuelPickup.cs
   Lander.cs
   LanderVisuals.cs
