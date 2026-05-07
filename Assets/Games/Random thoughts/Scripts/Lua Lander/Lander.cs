@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,7 @@ public class Lander : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float turnSpeed = 100f;
     [SerializeField] private float force = 70f;
+    private float fuelAmount = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -25,7 +27,16 @@ public class Lander : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        Debug.Log(fuelAmount);
+        if (fuelAmount <= 0f)
+        {
+            return;
+        }
         OnBeforeForce?.Invoke(this, EventArgs.Empty);
+        if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed || Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed || Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
+        {
+            ConsumeFuel();
+        }
         if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed)
         {
             _rigidbody2D.AddForce(force * Time.deltaTime * transform.up, ForceMode2D.Impulse);
@@ -79,6 +90,23 @@ public class Lander : MonoBehaviour
 
             Debug.Log($"Total score: {score}");
         }
+    }
+
+    private void OnTriggerEnter2D (Collider2D collider2D)
+    {
+        if (collider2D.gameObject.TryGetComponent<FuelPickup>(out FuelPickup fuelPickup))
+        {
+            float addFuelAmount = 10f;
+            fuelAmount += addFuelAmount;
+            fuelPickup.DestroySelf();
+        }
+        return;
+    }
+
+    private void ConsumeFuel()
+    {
+        float fuelConsumptionAmount = 1f;
+        fuelAmount -= fuelConsumptionAmount * Time.deltaTime;
     }
     private void Update()
     {
