@@ -36,7 +36,6 @@ public class Lander : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        Debug.Log(fuelAmount);
         if (fuelAmount <= 0f)
         {
             return;
