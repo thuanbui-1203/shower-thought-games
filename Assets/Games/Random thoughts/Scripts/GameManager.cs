@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int score;
+    private float time;
+    public static GameManager Instance { get; private set; }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+    }
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         Lander.Instance.OnCoinPickup += Lander_OnCoinPickup;
@@ -26,7 +37,16 @@ public class GameManager : MonoBehaviour
     {
         score += addScoreAmount;
         Debug.Log(score);
-    }   
+    }
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public float GetTime()
+    {
+        return time;
+    }
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

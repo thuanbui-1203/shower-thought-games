@@ -67,6 +67,7 @@ Assets/Games/Random thoughts/Scripts/
   LanderVisuals.cs
   LandingPad.cs
   LandingPadVisuals.cs
+  StatsUI.cs
  SpeedAdjusting/
   BoxMove.cs
   TargetChecker.cs

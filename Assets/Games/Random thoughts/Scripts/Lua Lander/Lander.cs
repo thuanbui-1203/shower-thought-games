@@ -104,7 +104,7 @@ public class Lander : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D (Collider2D collider2D)
+    private void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.gameObject.TryGetComponent<FuelPickup>(out FuelPickup fuelPickup))
         {
@@ -125,6 +125,19 @@ public class Lander : MonoBehaviour
     {
         float fuelConsumptionAmount = 1f;
         fuelAmount -= fuelConsumptionAmount * Time.deltaTime;
+    }
+    public float GetFuelAmount()
+    {
+        return fuelAmount;
+    }
+    public float GetSpeedX()
+    {
+        return _rigidbody2D.linearVelocityX;
+    }
+
+    public float GetSpeedY()
+    {
+        return _rigidbody2D.linearVelocityY;
     }
     private void Update()
     {
