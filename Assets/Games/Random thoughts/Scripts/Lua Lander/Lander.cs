@@ -22,6 +22,8 @@ public class Lander : MonoBehaviour
     [SerializeField] private float turnSpeed = 100f;
     [SerializeField] private float force = 70f;
     private float fuelAmount = 10f;
+    private float maxFuelAmount = 10f;
+    public float GetMaxFuelAmount => fuelAmount / maxFuelAmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -106,14 +108,18 @@ public class Lander : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.TryGetComponent<FuelPickup>(out FuelPickup fuelPickup))
+        if (collider2D.gameObject.TryGetComponent(out FuelPickup fuelPickup))
         {
             float addFuelAmount = 10f;
             fuelAmount += addFuelAmount;
+            if (fuelAmount >= maxFuelAmount)
+            {
+                fuelAmount = 10f;
+            }
             fuelPickup.DestroySelf();
         }
 
-        if (collider2D.gameObject.TryGetComponent<CoinPickup>(out CoinPickup coinPickup))
+        if (collider2D.gameObject.TryGetComponent(out CoinPickup coinPickup))
         {
             OnCoinPickup?.Invoke(this, EventArgs.Empty);
             coinPickup.DestroySelf();
@@ -132,12 +138,12 @@ public class Lander : MonoBehaviour
     }
     public float GetSpeedX()
     {
-        return _rigidbody2D.linearVelocityX;
+        return Mathf.Abs(_rigidbody2D.linearVelocityX);
     }
 
     public float GetSpeedY()
     {
-        return _rigidbody2D.linearVelocityY;
+        return Mathf.Abs(_rigidbody2D.linearVelocityY);
     }
     private void Update()
     {
