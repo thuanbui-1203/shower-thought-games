@@ -63,6 +63,7 @@ Assets/Games/Random thoughts/Scripts/
  Lua Lander/
   CoinPickup.cs
   FuelPickup.cs
+  LandedUI.cs
   Lander.cs
   LanderVisuals.cs
   LandingPad.cs

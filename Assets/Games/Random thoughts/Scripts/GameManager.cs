@@ -6,11 +6,15 @@ public class GameManager : MonoBehaviour
 {
     private int score;
     private float time;
+    private bool isTimerActive;
     public static GameManager Instance { get; private set; }
 
     private void Update()
     {
-        time += Time.deltaTime;
+        if (isTimerActive)
+        {
+            time += Time.deltaTime;
+        }
     }
     private void Awake()
     {
@@ -20,12 +24,17 @@ public class GameManager : MonoBehaviour
     {
         Lander.Instance.OnCoinPickup += Lander_OnCoinPickup;
         Lander.Instance.OnLanded += Lander_OnLanded;
+        Lander.Instance.OnStateChanged += Lander_OnStateChanged;
+    }
+
+    private void Lander_OnStateChanged(object sender, Lander.OnStateChangedEventArgs e)
+    {
+        isTimerActive = e.state == Lander.State.Normal;
     }
 
     private void Lander_OnLanded(object sender, Lander.OnLandedEventArgs e)
     {
         AddScore(e.score);
-        return;
     }
 
     private void Lander_OnCoinPickup(object sender, EventArgs e)
