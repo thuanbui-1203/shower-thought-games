@@ -14,40 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: lunarLanderFree
-  lastShownTimestamp: 1778745274
+  lastShownTimestamp: 1779417192
   lastUpdateResponse:
     version: 1.00
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1778745274
+  checkedLastUpdateTimestamp: 1779417192
   lastQOTDResponse:
-    questionId: 301
-    questionText: What is JSON and what is it useful for?
-    answerA: JavaScript Over Node, programming pattern
-    answerB: JavaScript Object Notation, data format
-    answerC: Jumping-Signal Over Nonce, crypto concept
-    answerD: 
+    questionId: 304
+    questionText: What is the orthographicSize in a 2D camera?
+    answerA: Units visible horizontally
+    answerB: Units visible vertically
+    answerC: Half the units visible horizontally
+    answerD: Half the units visible vertically
     answerE: 
-  lastQotdTimestamp: 1778745274
+  lastQotdTimestamp: 1779417192
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/gameDevPracticeLab_2.png
-    topText: Weekly Game Mechanic Challenges to help you learn by DOING!
-    topLink: practicelab
-    bottomText: My 10+ Years of C# Knowledge in 1 Course!
-    bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1778745274
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/unityBundleMay26MustHave.png
+    topText: The BEST Unity Bundle in ages! Includes my most recommended asset 94%
+      OFF!
+    topLink: assetstore
+    bottomText: Get 98% OFF on awesome REALISTIC HumbleBundle!
+    bottomLink: humblebundle
+  lastDynamicHeaderTimestamp: 1779417192
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1778745274
+  websiteLatestMessageTimestamp: 1779417192
   websiteLatestVideos:
     videos:
-    - youTubeId: pV-tmNmJFjY
-      title: Unity's AI Tools are GENUINELY useful!
-    - youTubeId: _7ACFqhnxTw
-      title: FREE Game Dev Mechanic Challenges! Traffic System and Keypad Access
-        (Learn by DOING!)
-    - youTubeId: 546J2n9Sn5o
-      title: The MOST AWESOME Unity Bundle is HERE! 94% OFF!
-    - youTubeId: _WB6Ui5XeH0
-      title: The 10 SECRETS to making BETTER games!
-  websiteLatestVideosTimestamp: 1778745274
+    - youTubeId: LW1gycyV8VM
+      title: TOP 10 NEW Games, Made with Unity! (APRIL 2026)
+    - youTubeId: ywDrlnC-Y3M
+      title: The BEST Unity tool got EVEN BETTER! (and FREE!)
+    - youTubeId: JE8LhN-kBtY
+      title: Programming Basics (C# Tutorial for Beginners)
+    - youTubeId: RXjO0W5iF_E
+      title: TOP 10 FREE NEW Assets MAY 2026!
+  websiteLatestVideosTimestamp: 1779417192

@@ -6,15 +6,17 @@ using UnityEngine.UI;
 
 public class LandedUI : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI nextButtonTextMesh;
     [SerializeField] private TextMeshProUGUI statsTextMesh;
     [SerializeField] private TextMeshProUGUI titleTextMesh;
     [SerializeField] private Button nextButton;
 
+    private Action nextButtonClickAction;
     private void Awake()
     {
         nextButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(0);
+            nextButtonClickAction();
         });
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,10 +31,14 @@ public class LandedUI : MonoBehaviour
         if (e.landingType == Lander.LandingType.Success)
         {
             titleTextMesh.text = "SUCCESSFUL LANDING";
+            nextButtonTextMesh.text = "CONTINUE";
+            nextButtonClickAction = GameManager.Instance.GoToNextLevel;
         }
         else
         {
             titleTextMesh.text = "<color=#ff0000>CRASHED!</color>";
+            nextButtonTextMesh.text = "RETRY";
+            nextButtonClickAction = GameManager.Instance.RetryLevel;
         }
 
         statsTextMesh.text =

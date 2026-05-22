@@ -45,8 +45,8 @@ public class Lander : MonoBehaviour
     [SerializeField] private float force = 70f;
     const float GRAVITY_NORMAL = 0.7f;
     private State state;
-    private float fuelAmount = 10f;
-    private float maxFuelAmount = 10f;
+    private float fuelAmount = 20f;
+    private float maxFuelAmount = 20f;
     public float GetMaxFuelAmount => fuelAmount / maxFuelAmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -191,11 +191,11 @@ public class Lander : MonoBehaviour
     {
         if (collider2D.gameObject.TryGetComponent(out FuelPickup fuelPickup))
         {
-            float addFuelAmount = 10f;
+            float addFuelAmount = 20f;
             fuelAmount += addFuelAmount;
             if (fuelAmount >= maxFuelAmount)
             {
-                fuelAmount = 10f;
+                fuelAmount = 20f;
             }
             fuelPickup.DestroySelf();
         }

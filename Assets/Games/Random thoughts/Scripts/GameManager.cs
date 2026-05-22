@@ -1,9 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    [SerializeField] private List<GameLevel> gameLevelList;
+    private static int levelNumber = 1;
     private int score;
     private float time;
     private bool isTimerActive;
@@ -25,6 +29,19 @@ public class GameManager : MonoBehaviour
         Lander.Instance.OnCoinPickup += Lander_OnCoinPickup;
         Lander.Instance.OnLanded += Lander_OnLanded;
         Lander.Instance.OnStateChanged += Lander_OnStateChanged;
+        LoadCurrentLevel();
+    }
+
+    private void LoadCurrentLevel()
+    {
+        foreach (GameLevel gameLevel in gameLevelList)
+        {
+            if (gameLevel.GetLevelNumber() == levelNumber)
+            {
+                GameLevel spawnedGameLevel = Instantiate(gameLevel, Vector3.zero, Quaternion.identity);
+                Lander.Instance.transform.position = spawnedGameLevel.GetLanderStartPosition();
+            }
+        }
     }
 
     private void Lander_OnStateChanged(object sender, Lander.OnStateChangedEventArgs e)
@@ -62,7 +79,19 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Resume the game if it was paused
     }
 
+    public void GoToNextLevel()
+    {
+        levelNumber++;
+        SceneManager.LoadScene(0);
+    }
+    public void RetryLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
 
-
+    public int GetLevelNumber()
+    {
+        return levelNumber;
+    }
     // You can add additional game management logic here, such as handling game states, managing player lives, etc.
 }
