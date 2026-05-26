@@ -70,7 +70,9 @@ public class Lander : MonoBehaviour
             default:
             case State.WaitingToStart:
 
-                if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed || Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed || Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
+                if (GameInput.Instance.IsLeftActionPressed() ||
+                    GameInput.Instance.IsRightActionPressed() ||
+                    GameInput.Instance.IsUpActionPressed())
                 {
                     ConsumeFuel();
                     _rigidbody2D.gravityScale = GRAVITY_NORMAL;
@@ -82,22 +84,24 @@ public class Lander : MonoBehaviour
                 {
                     return;
                 }
-                if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed || Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed || Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
+                if (GameInput.Instance.IsLeftActionPressed() ||
+                    GameInput.Instance.IsRightActionPressed() ||
+                    GameInput.Instance.IsUpActionPressed())
                 {
                     ConsumeFuel();
                 }
-                if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed)
+                if (GameInput.Instance.IsUpActionPressed())
                 {
                     _rigidbody2D.AddForce(force * Time.deltaTime * transform.up, ForceMode2D.Impulse);
                     OnUpForce?.Invoke(this, EventArgs.Empty);
                 }
 
-                if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
+                if (GameInput.Instance.IsLeftActionPressed())
                 {
                     _rigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
                     OnLeftForce?.Invoke(this, EventArgs.Empty);
                 }
-                if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
+                if (GameInput.Instance.IsRightActionPressed())
                 {
                     _rigidbody2D.AddTorque(turnSpeed * -1 * Time.deltaTime);
                     OnRightForce?.Invoke(this, EventArgs.Empty);

@@ -61,9 +61,12 @@ Assets/Games/Random thoughts/Scripts/DataDropper/
 Assets/Games/Random thoughts/Scripts/
  GameLevel.cs
  GameManager.cs
+ InputActions.cs
  Lua Lander/
+  CinemachineCameraZoom2D.cs
   CoinPickup.cs
   FuelPickup.cs
+  GameInput.cs
   LandedUI.cs
   Lander.cs
   LanderVisuals.cs

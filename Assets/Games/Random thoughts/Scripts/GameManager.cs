@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private List<GameLevel> gameLevelList;
+    [SerializeField] private CinemachineCamera cameraStartPosition;
     private static int levelNumber = 1;
     private int score;
     private float time;
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
             {
                 GameLevel spawnedGameLevel = Instantiate(gameLevel, Vector3.zero, Quaternion.identity);
                 Lander.Instance.transform.position = spawnedGameLevel.GetLanderStartPosition();
+                cameraStartPosition.Target.TrackingTarget = spawnedGameLevel.GetCameraStartPositionTransform();
+                CinemachineCameraZoom2D.Instance.SetTargetOrthographicSize(spawnedGameLevel.GetZoomedOutOrthographicSize());
             }
         }
     }
@@ -47,6 +51,11 @@ public class GameManager : MonoBehaviour
     private void Lander_OnStateChanged(object sender, Lander.OnStateChangedEventArgs e)
     {
         isTimerActive = e.state == Lander.State.Normal;
+        if (e.state == Lander.State.Normal)
+        {
+            cameraStartPosition.Target.TrackingTarget = Lander.Instance.transform;
+            CinemachineCameraZoom2D.Instance.SetNormalOrthographicSize();
+        }
     }
 
     private void Lander_OnLanded(object sender, Lander.OnLandedEventArgs e)
