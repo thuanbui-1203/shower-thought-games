@@ -82,20 +82,15 @@ public class GameManager : MonoBehaviour
     {
         return time;
     }
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f; // Resume the game if it was paused
-    }
 
     public void GoToNextLevel()
     {
         levelNumber++;
-        SceneManager.LoadScene(0);
+        SceneLoader.LoadScene(SceneLoader.Scene.LuaLander);
     }
     public void RetryLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneLoader.LoadScene(SceneLoader.Scene.LuaLander);
     }
 
     public int GetLevelNumber()

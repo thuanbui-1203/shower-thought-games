@@ -67,12 +67,15 @@ Assets/Games/Random thoughts/Scripts/
   CoinPickup.cs
   FuelPickup.cs
   GameInput.cs
-  LandedUI.cs
   Lander.cs
   LanderVisuals.cs
   LandingPad.cs
   LandingPadVisuals.cs
-  StatsUI.cs
+  SceneLoader.cs
+  UI/
+   LandedUI.cs
+   MainMenuUI.cs
+   StatsUI.cs
  SpeedAdjusting/
   BoxMove.cs
   TargetChecker.cs
