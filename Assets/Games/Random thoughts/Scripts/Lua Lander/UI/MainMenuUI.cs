@@ -10,6 +10,7 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.onClick.AddListener(() =>
         {
+            GameManager.ResetStaticData();
             SceneLoader.LoadScene(SceneLoader.Scene.LuaLander);
         });
 
@@ -17,5 +18,10 @@ public class MainMenuUI : MonoBehaviour
         {
             Application.Quit();
         });
+    }
+
+    private void Start()
+    {
+        playButton.Select();
     }
 }

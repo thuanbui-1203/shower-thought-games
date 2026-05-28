@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
         GameInput.Instance.OnMenuButtonPressed += GameInput_OnMenuButtonPressed;
     }
 
+    public static void ResetStaticData()
+    {
+        levelNumber = 1;
+        totalScore = 0;
+    }
+
     private void GameInput_OnMenuButtonPressed(object sender, EventArgs e)
     {
         PauseUnpauseGame();
@@ -146,6 +152,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         OnGameUnpaused?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void QuitGame()
+    {
+        SceneLoader.LoadScene(SceneLoader.Scene.MainMenuScene);
     }
     // You can add additional game management logic here, such as handling game states, managing player lives, etc.
 }
