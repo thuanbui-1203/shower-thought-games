@@ -73,8 +73,10 @@ Assets/Games/Random thoughts/Scripts/
   LandingPadVisuals.cs
   SceneLoader.cs
   UI/
+   GameOverUI.cs
    LandedUI.cs
    MainMenuUI.cs
+   PausedUI.cs
    StatsUI.cs
  SpeedAdjusting/
   BoxMove.cs

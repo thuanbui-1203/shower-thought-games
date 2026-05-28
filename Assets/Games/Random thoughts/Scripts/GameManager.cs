@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameLevel> gameLevelList;
     [SerializeField] private CinemachineCamera cameraStartPosition;
     private static int levelNumber = 1;
+    private static int totalScore = 0;
     private int score;
     private float time;
     private bool isTimerActive;
+    public event EventHandler OnGamePaused;
+    public event EventHandler OnGameUnpaused;
     public static GameManager Instance { get; private set; }
 
     private void Update()
@@ -32,20 +35,43 @@ public class GameManager : MonoBehaviour
         Lander.Instance.OnLanded += Lander_OnLanded;
         Lander.Instance.OnStateChanged += Lander_OnStateChanged;
         LoadCurrentLevel();
+
+        GameInput.Instance.OnMenuButtonPressed += GameInput_OnMenuButtonPressed;
+    }
+
+    private void GameInput_OnMenuButtonPressed(object sender, EventArgs e)
+    {
+        PauseUnpauseGame();
+    }
+
+    private void PauseUnpauseGame()
+    {
+        if (Time.timeScale == 1f)
+        {
+            PauseGame();
+        }
+        else UnpauseGame();
     }
 
     private void LoadCurrentLevel()
+    {
+        GameLevel spawnedGameLevel = GetGameLevel();
+        Lander.Instance.transform.position = spawnedGameLevel.GetLanderStartPosition();
+        cameraStartPosition.Target.TrackingTarget = spawnedGameLevel.GetCameraStartPositionTransform();
+        CinemachineCameraZoom2D.Instance.SetTargetOrthographicSize(spawnedGameLevel.GetZoomedOutOrthographicSize());
+    }
+
+    private GameLevel GetGameLevel()
     {
         foreach (GameLevel gameLevel in gameLevelList)
         {
             if (gameLevel.GetLevelNumber() == levelNumber)
             {
                 GameLevel spawnedGameLevel = Instantiate(gameLevel, Vector3.zero, Quaternion.identity);
-                Lander.Instance.transform.position = spawnedGameLevel.GetLanderStartPosition();
-                cameraStartPosition.Target.TrackingTarget = spawnedGameLevel.GetCameraStartPositionTransform();
-                CinemachineCameraZoom2D.Instance.SetTargetOrthographicSize(spawnedGameLevel.GetZoomedOutOrthographicSize());
+                return spawnedGameLevel;
             }
         }
+        return null;
     }
 
     private void Lander_OnStateChanged(object sender, Lander.OnStateChangedEventArgs e)
@@ -83,9 +109,21 @@ public class GameManager : MonoBehaviour
         return time;
     }
 
+    public int GetTotalScore()
+    {
+        return totalScore;
+    }
+
     public void GoToNextLevel()
     {
         levelNumber++;
+        totalScore += score;
+        if (GetGameLevel() == null)
+        {
+            // No more levels, go to main menu
+            SceneLoader.LoadScene(SceneLoader.Scene.GameOverScene);
+            return;
+        }
         SceneLoader.LoadScene(SceneLoader.Scene.LuaLander);
     }
     public void RetryLevel()
@@ -96,6 +134,18 @@ public class GameManager : MonoBehaviour
     public int GetLevelNumber()
     {
         return levelNumber;
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        OnGamePaused?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1f;
+        OnGameUnpaused?.Invoke(this, EventArgs.Empty);
     }
     // You can add additional game management logic here, such as handling game states, managing player lives, etc.
 }
