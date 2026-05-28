@@ -68,6 +68,7 @@ Assets/Games/Random thoughts/Scripts/
   FuelPickup.cs
   GameInput.cs
   Lander.cs
+  LanderAudio.cs
   LanderVisuals.cs
   LandingPad.cs
   LandingPadVisuals.cs
@@ -78,6 +79,7 @@ Assets/Games/Random thoughts/Scripts/
    MainMenuUI.cs
    PausedUI.cs
    StatsUI.cs
+ SoundManager.cs
  SpeedAdjusting/
   BoxMove.cs
   TargetChecker.cs
