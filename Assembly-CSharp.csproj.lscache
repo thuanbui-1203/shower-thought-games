@@ -79,6 +79,7 @@ Assets/Games/Random thoughts/Scripts/
    MainMenuUI.cs
    PausedUI.cs
    StatsUI.cs
+ MusicManager.cs
  SoundManager.cs
  SpeedAdjusting/
   BoxMove.cs
