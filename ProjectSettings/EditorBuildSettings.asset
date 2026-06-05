@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Games/Random thoughts/Scenes/LuaLander/MainMenuScene.unity
+    path: Assets/Games/Random thoughts/Lua Lander/Scenes/MainMenuScene.unity
     guid: f3b3e773d09384141becf74d97cd7135
   - enabled: 1
-    path: Assets/Games/Random thoughts/Scenes/LuaLander/LuaLander.unity
+    path: Assets/Games/Random thoughts/Lua Lander/Scenes/LuaLander.unity
     guid: 48ad271bf4003114daa67ba2b37a853f
   - enabled: 1
-    path: Assets/Games/Random thoughts/Scenes/LuaLander/GameOverScene.unity
+    path: Assets/Games/Random thoughts/Lua Lander/Scenes/GameOverScene.unity
     guid: d971beb0aead3e4449073c5fac6923de
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
